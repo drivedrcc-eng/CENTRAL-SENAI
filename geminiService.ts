@@ -10,8 +10,8 @@ export interface SuggestionContext {
 }
 
 export const suggestInstructor = async (
-  subject: string, 
-  users: User[], 
+  subject: string,
+  users: User[],
   context: SuggestionContext
 ): Promise<string[]> => {
   const allPotentialInstructors = users.filter(u => u.competencyIds && u.competencyIds.length > 0);
@@ -30,7 +30,7 @@ export const suggestInstructor = async (
 
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-    
+
     const instructorsData = allPotentialInstructors.map(i => ({
       id: i.id,
       name: i.name,
@@ -70,7 +70,7 @@ ${JSON.stringify(instructorsData)}`;
 
     const textOutput = response.text;
     if (!textOutput) return [];
-    
+
     const jsonStr = textOutput.trim();
     return JSON.parse(jsonStr);
   } catch (error) {
