@@ -1,7 +1,0 @@
-{
-  "name": "Central SENAI",
-  "description": "Uma plataforma robusta para agendamento de aulas, gestão de instrutores com sugestões baseadas em competências, controle de laboratórios e relatórios de ocupação.",
-  "requestFramePermissions": [
-    "camera"
-  ]
-}
